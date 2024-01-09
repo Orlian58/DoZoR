@@ -2,7 +2,7 @@
 
 ## dozor_own_console консоль управления СОВ DOZOR
 
-## dozor_endpoint_security сканер конечных хочтов СОВ DOZOR
+## dozor_endpoint_security сканер конечных хостов СОВ DOZOR
 
 ## dozor_ids сетевой сканер СОВ DOZOR
 
