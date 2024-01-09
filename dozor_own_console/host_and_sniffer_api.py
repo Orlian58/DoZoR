@@ -33,17 +33,18 @@ def sniffer_status(name):
 
 @exeption
 def select_sniffer_alerts(name, date):
-    response = requests.get(f'http://{name}:5000/get_alerts?date={date}', timeout=1)
-    if response == '{}':
+    response = requests.get(f'http://{name}:5000/get_alerts?date={date}', timeout=5)
+    #print(response.text)
+    if response.text == '{}':
         return {'Атак нет, можно спать спокойно'}
     alerts = []
-    for item in response.split('/n'):
+    for item in response.text.split('\n')[:-1]:
         alerts.append(json.loads(item))
     messages = []
     for alert in alerts:
-        message = f'{alert["time"]}: {"msg"}'
+        message = f'{alert["time"]}: {alert["msg"]}'
         messages.append(message)
-    return message
+    return messages
 
 @exeption
 def host_select_logs(name):
