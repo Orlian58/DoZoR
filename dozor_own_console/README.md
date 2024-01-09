@@ -8,14 +8,12 @@
 
 2) Установите pip: 'sudo apt-get install python3-pip'
 
-3) Установите Git: 'sudo apt install git'
+4) Установите неободимые библиотеки: 'pip install -r requirements.txt'
 
-4) Клонируйте git-репозиторий: 'git clone ...'
+5) Создайте базы данных: 'python3 create_db.py'
 
-5) Установите неободимые библиотеки: 'pip install -r requirements.txt'
+6) Запустите сервер: 'python3 1.py'
 
-6) Создайте базы данных: 'python3 create_db.py'
-
-7) Запустите сервер: 'python3 1.py'
+7) Сервер работает на 5000 порту
 
 8) Учётная запись по умолчанию: odmen:12345
