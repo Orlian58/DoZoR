@@ -116,7 +116,7 @@ def yara(args, path_to_output, path_to_yara) -> str:
 
         for entry in target.yara(list(map(lambda s: Path(path_to_yara + s), args["rule"].split(r","))), args["path"], int(args["size"])):
             try:
-                rs += str(entry) + ","
+                rs += str(entry)
 
             except Exception as e:
                 target.log.error(f"Исключение произошло при обработке вывода yara", exc_info=e)
