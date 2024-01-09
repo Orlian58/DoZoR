@@ -4,4 +4,4 @@ pip install -r requirements.txt
 exit
 sudo su
 source venv/bin/activate
-python 3 flask-api/app/app.py &
+python3 flask-api/app/app.py &
