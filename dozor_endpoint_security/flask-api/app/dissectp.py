@@ -94,11 +94,6 @@ def artifact(args, path_to_output) -> str:
 # args {"targets": [], "path": [], "size": []}
 def yara(args, path_to_output, path_to_yara) -> str:
 
-    if not args["targets"] or not args["path"]\
-        or not args["size"] or not args["hash"]\
-        or not args["rule"]:
-        raise UserWarning("Слишком мало аргументов")
-
     for target in Target.open_all(args["targets"]):
         target = YaraPlugin(target)
 
@@ -119,7 +114,7 @@ def yara(args, path_to_output, path_to_yara) -> str:
         rs = ""
         
 
-        for entry,_ in target.yara(list(map(lambda s: Path(path_to_yara + s), args["rule"].split(r","))), args["path"], int(args["size"])):
+        for entry in target.yara(list(map(lambda s: Path(path_to_yara + s), args["rule"].split(r","))), args["path"], int(args["size"])):
             try:
                 rs += str(entry)
 
