@@ -17,6 +17,7 @@ Dozor Endpoint Security это инструмент разработанный �
 ## Installation
 
 Для запуска на конечной точке Dozor Endpoint Security требует установки [Python](https://www.python.org/downloads/release/python-31013/) v3.10+  и virtualenv текущей версии.
+Для работы антивирусного сканера необходимо добавить yara правила.
 
 For production environments...
 ```bash
