@@ -36,5 +36,5 @@ python flask-api/app/app.py &
 "PATH_TO_OUTPUT": "/home/ubuntu/Desktop/", - путь до рабочей директории
 "PATH_TO_YARA": "/opt/yara-repo/", - путь до используемых yara правил
 
-"DISSECT":{"images":"/","hash":"None","param":"authlog,securelog,syslog"},
-"YARA":{"images":"/","hash":"None","path":"/","rule":"","size":"99999999999999999"},
+"DISSECT":{"images":"/","hash":"None","param":"securelog"},
+"YARA":{"images":"/","hash":"None","path":"/","rule":"","size":"99999999999999999"}, rule - названия файлов с правилами по пути: PATH_TO_YARA
