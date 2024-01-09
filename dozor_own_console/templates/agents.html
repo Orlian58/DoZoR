@@ -55,8 +55,13 @@
 					<input type="text" class="form-control" id="agent-description" name="agent-description" required>
 				  </div>
 				  <div class="form-group">
-					<label for="scanner-type">Тип сканера ('Сканер конечных точек' или 'Сетевой сканер'):</label>
-					<input type="text" class="form-control" id="scanner-type" name="scanner-type" required>
+					<div class="form-group">
+						<label for="scanner-type">Тип сканера:</label>
+						<select class="form-control" id="scanner-type" name="scanner-type" required>
+							<option value="Сканер конечных точек">Сканер конечных точек</option>
+							<option value="Сетевой сканер">Сетевой сканер</option>
+						</select>
+					  </div>
 				  </div>
 				  <button type="submit" class="btn btn-success">Добавить</button>
 				  <button type="button" class="btn btn-secondary" id="cancel-add-agent-btn">Отмена</button>

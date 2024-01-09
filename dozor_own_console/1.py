@@ -41,22 +41,23 @@ def login():
 @app.route('/register', methods=['GET', 'POST'])
 @login_required  # Ограничиваем доступ только для авторизованных пользователей
 def register():
-    if current_user.username !='odmen': # Ограничиваем доступ для админа
+    if current_user.role !='admin': # Ограничиваем доступ для админа
         flash('Это не входит в твои должностные обязанности')
         return redirect(url_for('profile'))
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
         email = request.form['email']
+        role = request.form['role']
         user = User.query.filter_by(username=username).first()
         if user:
             flash('Этот боец уже в строю')
         else:
             hashed_password = generate_password_hash(password)
-            new_user = User(username=username, password=hashed_password, email=email)
+            new_user = User(username=username, password=hashed_password, email=email, role=role)
             db.session.add(new_user)
             db.session.commit()
-            flash('Account created successfully')
+            flash('Боец готов к службе')
             return redirect(url_for('login'))
     return render_template('register.html')
 
@@ -103,7 +104,7 @@ def delete(agent_id):
     if request.method == 'POST':
         db.session.delete(agent)
         db.session.commit()
-        flash('Futyn удален')
+        flash('Агент удален')
         return redirect(url_for('agents'))
     return render_template('delete.html', agent=agent)
 

@@ -10,7 +10,7 @@ if __name__ == '__main__':
     with app.app_context():
         db.create_all()
 
-        user1 = User(username = 'odmen', password = generate_password_hash('12345'), email = 'odmen@odmen.odmen')
+        user1 = User(username = 'odmen', password = generate_password_hash('12345'), email = 'odmen@odmen.odmen', role = 'admin')
 
         db.session.add_all([user1])
         db.session.commit()
