@@ -73,7 +73,6 @@ def host_select_logs(name):
             logs.append(log)
         return logs
 
-@exeption
 def host_antivirus(name):
     try:
         response = requests.get(f'http://{name}:80/yara', timeout=100).json()
