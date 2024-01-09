@@ -10,10 +10,10 @@
           </div>
           <div class="card-body">
             <h3>Управление сканированием</h3>
-            <form action="antivirus" target="_blank">
+            <form action="antivirus={{ agent.id }}" target="_blank">
               <button class="btn btn-primary">Запустить антивирусное сканирование</button>
             </form>
-            <form action="host_logs" target="_blank">
+            <form action="host_logs={{ agent.id }}" target="_blank">
               <button class="btn btn-primary">Собрать логи</button>
             </form>
             <div id="logs-output" style="max-height: 200px; overflow-y: auto;">
