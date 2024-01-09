@@ -53,14 +53,23 @@ def host_select_logs(name):
     if logs == "":
         return {'Логи очищены'}
     else:
-        result = re.findall(r"<(.*)>", logs)
+        result = re.findall(r"<[^>]*>", logs)
         logs = []
         for i in result:
-            log = {}
-            str = i.split('<', 1)[1].split('>', 1)[0]
-            for item in str.split():
-                key, value = item.split("=")
-                log[key.strip("'")] = value.strip()
+            string = i
+            match = re.search("ts=(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})", string)
+            if match:
+                ts = match.group(1)
+                message = ''
+                message = re.findall('message=\"(.*?)\"', string)
+                message1 = ' '.join(message)
+                if message1 !='':
+                    log = ts + ':' + ' ' + message1
+                else:
+                    message = re.findall("message='(.+?)'", string)
+                message1 = ' '.join(message)
+                if message1 !='':
+                    log = ts + ':' + ' ' + message1
             logs.append(log)
         return logs
 
