@@ -20,10 +20,8 @@ Dozor Endpoint Security это инструмент разработанный �
 
 For production environments...
 ```bash
-virtualenv venv
-source venv/bin/activate
-pip install -r requirements.txt --no-index -f dist
-exit
+cd dozor_endpoint_security/
+./install.sh
 sudo su
 source venv/bin/activate
 python 3 flask-api/app/app.py &

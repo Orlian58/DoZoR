@@ -8,7 +8,7 @@ from dissectp import artifact, yara
 from arg_parser import dissect_parser, yara_parser
 
 app = Flask(__name__)
-PATH_TO_CONF = "dozor_endpoint_security/conf/dozor.conf"
+PATH_TO_CONF = "conf/dozor.conf"
 
 try:
     if not os.path.isfile(PATH_TO_CONF):
