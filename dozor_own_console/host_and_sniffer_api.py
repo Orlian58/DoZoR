@@ -14,7 +14,7 @@ def exeption(func):
         except json.JSONDecodeError:
             return {'Никого нет, постучите попозже'}
         except Exception as ex:
-            return {'error'}
+            return {'Ошибка при передаче файла'}
     return wrapper
 
 @exeption
@@ -73,6 +73,7 @@ def host_select_logs(name):
             logs.append(log)
         return logs
 
+@exeption
 def host_antivirus(name):
     try:
         response = requests.get(f'http://{name}:80/yara', timeout=100).json()
@@ -80,7 +81,7 @@ def host_antivirus(name):
         if viruses == "":
             return {'Вирусов нет'}
         else:
-            viruses.json()
-            return viruses
+            logs = re.findall(r"<[^>]*>", viruses)
+            return logs
     except Exception as ex:
             return {'Вирусов не найдено, не болейте'}
