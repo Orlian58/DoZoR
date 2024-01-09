@@ -1,19 +1,17 @@
-# Это панель управления для СОВ DOZOR
+# Консоль управления для СОВ DOZOR
 
-## Как запустить  (на Дебиан или Убунту): ##
+## Первый запуск для ОС Debian/Ubuntu
 
-0) Подготовка: 'sudo apt update', 'sudo apt-get update'
+```bash
+sudo apt update
+sudo apt install -y sqlite3 python3-venv python3 build-essential libssl-dev libffi-dev python3-dev
+cd dozor_own_console
+chmod 777 auto_run.sh
+./auto_run.sh
+```
 
-1) Установите Python3: 'sudo apt install python3'
+Сервер работает на 5000 порту
 
-2) Установите pip: 'sudo apt-get install python3-pip'
-
-4) Установите неободимые библиотеки: 'pip install -r requirements.txt'
-
-5) Создайте базы данных: 'python3 create_db.py'
-
-6) Запустите сервер: 'python3 1.py'
-
-7) Сервер работает на 5000 порту
-
-8) Учётная запись по умолчанию: odmen:12345
+Учётная запись по умолчанию: 
+Login: odmen
+Password: 12345
