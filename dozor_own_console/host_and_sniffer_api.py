@@ -75,10 +75,13 @@ def host_select_logs(name):
 
 @exeption
 def host_antivirus(name):
-    response = requests.get(f'http://{name}:80/yara', timeout=100).json()
-    viruses = response["data"]
-    if viruses == "":
-        return {'Вирусов нет'}
-    else:
-        viruses.json()
-        return viruses
+    try:
+        response = requests.get(f'http://{name}:80/yara', timeout=100).json()
+        viruses = response["data"]
+        if viruses == "":
+            return {'Вирусов нет'}
+        else:
+            viruses.json()
+            return viruses
+    except Exception as ex:
+            return {'Вирусов не найдено, не болейте'}
