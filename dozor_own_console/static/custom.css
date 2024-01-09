@@ -1,0 +1,91 @@
+body {
+    background-color: #e5e5e5;
+}
+.profile-photo {
+  width: 150px;
+  height: 150px;
+}
+
+.my_link {
+  font-size: 400px;
+  color: #8a0303;
+  font-family: 'GhastlyPanicCyr', sans-serif;
+  text-decoration-line: none;
+}
+
+@font-face {
+  font-family: 'GhastlyPanicCyr';
+  src: local('GhastlyPanicCyr'), url('/fstatic/font/GhastlyPanicCyr.otf') format('opentype');
+}
+
+.container1 {
+  min-height: 90vh; /* Установите высоту контейнера на всю видимую высоту окна */
+  display: flex; /* Используйте flex-контейнер */
+  justify-content: center; /* Выравнивание по горизонтали по центру */
+  align-items: center; /* Выравнивание по вертикали по центру */
+}
+
+#logs-output {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 10px;
+}
+
+/* Стиль модального окна */
+.modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
+  animation-name: animatetop; 
+  animation-duration: 0.4s;
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .modal-content {
+    width: 40%;
+  }
+}
+
+.form-input {
+  margin-bottom: 10px;
+}
+
+.form-select {
+  margin-bottom: 10px;
+}
+
+.btn {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.btn + .btn {
+  margin-left: 5px;
+}

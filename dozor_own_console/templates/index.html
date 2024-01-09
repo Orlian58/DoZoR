@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container1">
+    {% if current_user.is_authenticated %}
+      <p class="mt-5">Привет, {{ current_user.username }}!</p>
+      <a href="{{ url_for('profile') }}" class="btn btn-primary mt-3">Моё досье</a>
+      <a href="{{ url_for('logout') }}" class="btn btn-secondary mt-3">Капитулировать</a>
+    {% else %}
+      <div class="row justify-content-center mt-5">
+        <div class="ol-md-6">
+          <div class="card-header">
+            <h1 class="text-center"><a class="my_link" href="{{ url_for('login') }}">заступить в DOZOR</a></h1>
+            </div>
+          </div>
+        </div>
+    {% endif %}
+  </div>
+{% endblock %}

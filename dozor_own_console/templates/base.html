@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <!-- Bootstrap стили -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- иконки fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- кастомные стили -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='custom.css') }}">
+	<script src="{{ url_for('static', filename='agents.js') }}"></script>
+	<script src="{{ url_for('static', filename='endpoint_scanner.js') }}"></script>
+	<script src="{{ url_for('static', filename='network_scanner.js') }}"></script>
+</head>
+<body>
+
+<!-- навигация -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand">Система обнаружения вторжений DOZOR</a>
+        <div class="collapse navbar-collapse justify-content-end"
+             id="navbarNav">
+            <ul class="navbar-nav">
+				<li class="nav-item">
+                    <a class="nav-link" href="agents">Воины</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="register">Добавить союзника</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="profile">Обо мне</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="logout">Дезертировать</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- контент дочерних шаблонов -->
+<div class="container my-3">
+    {% block content %}
+    {% endblock %}
+</div>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <div class="row justify-content-center mt-5">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">
+			<div id="logs-output" style="max-height: 200px; overflow-y: auto;">
+				{% with messages = get_flashed_messages() %}
+				{% if messages %}
+				  <div class="alert alert-danger">
+					<ul>
+					  {% for message in messages %}
+						<li>{{ message }}</li>
+					  {% endfor %}
+					</ul>
+				  </div>
+				{% endif %}
+				{% endwith %}
+			</div>
+            <h1 class="text-center">Список агентов</h1>
+          </div>
+          <div class="card-body">
+			<table>
+				<tr>
+					<th width="20%">Название агента</th>
+					<th width="20%">Описание агента</th>
+					<th width="20%">Тип агента</th>
+					<th width="20%"></th>
+					<th width="20%"></th>
+				</tr>
+				{% for agent in agents %}
+                <tr>
+					<td>{{ agent.ip }}</td>
+					<td>{{ agent.description }}</td>
+					<td>{{ agent.type }}</td>
+					<td><a href="/agent={{ agent.id }}" class="btn btn-secondary">Подробнее</a></td>
+					<td><a href="/delete={{ agent.id }}" class="btn btn-danger">Удалить</a></td>
+				</tr>
+              {% endfor %}
+			</table>
+			<button id="add-agent-btn" class="btn btn-primary">Добавить агента</button>
+			<div id="add-agent-modal" class="modal">
+			  <div class="modal-content">
+			    <span id="close-modal-btn" class="close">&times;</span>
+				  <h2>Добавление агента</h2>
+			    <form method="post">
+				  <div class="form-group">
+					<label for="agent-ip">Сетевой адрес или доменное имя:</label>
+					<input type="text" class="form-control" id="agent-ip" name="agent-ip" required>
+				  </div>
+				  <div class="form-group">
+					<label for="agent-description">Описание:</label>
+					<input type="text" class="form-control" id="agent-description" name="agent-description" required>
+				  </div>
+				  <div class="form-group">
+					<label for="scanner-type">Тип сканера ('Сканер конечных точек' или 'Сетевой сканер'):</label>
+					<input type="text" class="form-control" id="scanner-type" name="scanner-type" required>
+				  </div>
+				  <button type="submit" class="btn btn-success">Добавить</button>
+				  <button type="button" class="btn btn-secondary" id="cancel-add-agent-btn">Отмена</button>
+				</form>
+			  </div>
+            </div>
+		  </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

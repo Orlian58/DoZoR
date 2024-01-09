@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <div class="row justify-content-center mt-5">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">
+            <h1 class="text-center">Сетевой сканер {{ agent.ip }}</h1>
+          </div>
+          <div class="card-body">
+            <h3>Управление сканированием</h3>
+            <form action="sniffer_start={{ agent.id }}" target="_blank">
+              <button id="start-scan-btn" class="btn btn-primary">Включить сканирование</button>
+            </form>
+            <form action="sniffer_stop={{ agent.id }}" target="_blank">
+              <button id="stop-scan-btn" class="btn btn-danger">Отключить сканирование</button>
+            </form>
+            <form action="sniffer_alerts={{ agent.id }}" target="_blank" method="post">
+              <label for="date-picker">Выберите дату:</label>
+              <input type="date" id="date-picker" name="date-picker" class="form-control">
+              <button class="btn btn-secondary">Собрать события ИБ</button>
+            </form>
+            <div id="logs-output" style="max-height: 200px; overflow-y: auto;">
+              {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <div class="alert alert-danger">
+                  <ul>
+                    {% for message in messages %}
+                      <li>{{ message }}</li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% endif %}
+              {% endwith %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
