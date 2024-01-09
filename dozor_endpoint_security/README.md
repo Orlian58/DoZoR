@@ -25,7 +25,7 @@ cd dozor_endpoint_security/
 ./install.sh
 sudo su
 source venv/bin/activate
-python 3 flask-api/app/app.py &
+python flask-api/app/app.py &
 ```
 После запуска настроить конфигурацию dozor.conf:
 
